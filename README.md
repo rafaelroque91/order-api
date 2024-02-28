@@ -51,6 +51,8 @@ php artisan test
 
 ### Create Order
 
+**_The product should be related to the SAME CUSTOMER the ORDER.
+Otherwise, you will not be able to create it_**
 ````
 POST
 curl --location 'http://localhost:61000/api/v1/orders' \

@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Customer;
-use App\Models\Product;
+use App\Models\Inventory;
 use Illuminate\Database\Seeder;
 
-class ProductSeeder extends Seeder
+class InventorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,6 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        Product::factory(50)->create();
+        Inventory::factory(50)->create();
     }
 }

@@ -20,7 +20,7 @@ class OrderFactory extends Factory
             'address_street' => fake()->streetAddress,
             'address_number' => (string)fake()->numberBetween(1,3000),
             'zipcode' => fake()->postcode,
-            'customer_id' => Customer::factory()->create()->id
+            'customer_id' => Customer::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -11,7 +11,7 @@ class InventoryFactory extends Factory
     {
         return [
             'stock' => fake()->numberBetween(1,500),
-            'product_id' => Product::factory()->create()->id
+            'product_id' => Product::inRandomOrder()->first()->id,
         ];
     }
 }

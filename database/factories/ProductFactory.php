@@ -11,7 +11,7 @@ class ProductFactory extends Factory
     {
         return [
             'description' => 'Product Test - '.$this->faker->text(10),
-            'customer_id' => Customer::factory()->create()->id
+            'customer_id' =>  Customer::inRandomOrder()->first()->id,
         ];
     }
 }
