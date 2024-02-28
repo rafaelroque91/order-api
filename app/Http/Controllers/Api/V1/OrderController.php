@@ -41,16 +41,16 @@ class OrderController extends AbstractController
     {
         $this->manualRequestValidations($request);
 
-     //   try {
+        try {
             $order = $this->orderService->store($schema, $request, $query);
 
         return DataResponse::make($order)
             ->withQueryParameters($query)
             ->didCreate();
 
-      /*   } catch (\Throwable $e) {
+         } catch (\Throwable $e) {
             $this->throwAPIError($e->getMessage(), 500, 'Unable to create Order', $e->getMessage());
-        }*/
+        }
     }
 
     private function manualRequestValidations(OrderRequest $request): void
@@ -80,12 +80,12 @@ class OrderController extends AbstractController
     {
         return Validator::make($request->input(self::PRODUCTS_DATA_PATH), [
             '*.id' => [
-                'required',
+                'required','distinct',
                 Rule::exists('products', 'id')->where(function ($query) use ($request) {
                     $query->where('customer_id', $request->validated('customer.id'));
                 }),
             ],
-            '*.quantity' => 'required',
+            '*.quantity' => ['required','integer','min:1'],
         ], [
             'id.exists' => 'The selected product does not exist for this customer',
         ]);

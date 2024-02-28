@@ -71,7 +71,7 @@ curl --location 'http://localhost:61000/api/v1/orders' \
             "customer": {
                 "data": {
                     "type": "customers",
-                    "id": "2"
+                    "id": "1"
                 }
             },
             "products": {
@@ -80,11 +80,6 @@ curl --location 'http://localhost:61000/api/v1/orders' \
                         "type": "products",
                         "id": "1",
                         "quantity": 2
-                    },
-                    {
-                        "type": "products",
-                        "id": "2",
-                        "quantity": 1
                     }
                 ]
             }

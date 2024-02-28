@@ -2,16 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class inventoryFactory extends Factory
+class InventoryFactory extends Factory
 {
     public function definition()
     {
         return [
-            'stock' =>  fake()->numberBetween(1,500),
-            'product_id' => Customer::factory()->create()->id
+            'stock' => fake()->numberBetween(1,500),
+            'product_id' => Product::factory()->create()->id
         ];
     }
 }

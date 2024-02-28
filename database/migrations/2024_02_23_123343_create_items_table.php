@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(Order::class)->nullable(false)->constrained();
             $table->foreignIdFor(Product::class)->nullable(false)->constrained();
-            $table->integer('quantity')->nullable(false);
+            $table->integer('quantity')->nullable(true);
             //hack to force the created_at and udpated_at field to be filled on manyThrough relations using this lib
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable()->useCurrentOnUpdate();

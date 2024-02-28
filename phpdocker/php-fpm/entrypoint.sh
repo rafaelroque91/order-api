@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Installing Composer packages"
-php composer install
+php composer.phar install
 
 echo "run key Generate"
 php artisan key:generate
