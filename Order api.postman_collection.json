@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "b5911911-a2a0-4e70-a20e-eb78dace7d5b",
+		"name": "Order api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25544412"
+	},
+	"item": [
+		{
+			"name": "CREATE ORDER",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"type\": \"orders\",\r\n        \"attributes\": {\r\n            \"source\": \"amazon\",\r\n            \"recipientName\": \"Rafael\",\r\n            \"recipientPhone\": \"+18123456789\",\r\n            \"addressStreet\": \"Test Street\",\r\n            \"addressNumber\": \"1234\",\r\n            \"zipcode\": \"123456789\"\r\n        },\r\n        \"relationships\": {\r\n            \"customer\": {\r\n                \"data\": {\r\n                    \"type\": \"customers\",\r\n                    \"id\": \"2\"\r\n                }\r\n            },\r\n            \"products\": {\r\n                \"data\": [\r\n                    {\r\n                        \"type\": \"products\",\r\n                        \"id\": \"1\",\r\n                        \"quantity\": 2\r\n                    },\r\n                    {\r\n                        \"type\": \"products\",\r\n                        \"id\": \"2\",\r\n                        \"quantity\": 1\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:61000/api/v1/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ORDER",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true,
+					"accept-encoding": true,
+					"connection": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/vnd.api+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:61000/api/v1/orders/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "61000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
